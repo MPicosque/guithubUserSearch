@@ -1,0 +1,26 @@
+.Home-conteiner {
+    display: flex;
+  }
+  
+  .Home-content {
+    flex-direction: column;
+    padding-left: 40px;
+  }
+  
+  .Home-content-title {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: 0.02em;
+    color: #062847;
+  
+    margin-top: 130px;
+  }
+  
+  .Home-content-subtitle {
+    font-size: 20px;
+    line-height: 36px;
+    color: #5A6774;
+    padding-top: 25px;
+    margin: 0;
+  }

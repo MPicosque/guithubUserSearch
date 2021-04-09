@@ -12,4 +12,5 @@
 
 .d_flex {
   display: flex;
+  padding-top: 25px;
 }
