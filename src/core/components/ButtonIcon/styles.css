@@ -1,0 +1,15 @@
+.btn-icon {
+  background: #1890FF;
+  height: 40px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.d_flex {
+  display: flex;
+}

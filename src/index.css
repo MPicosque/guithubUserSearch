@@ -1,13 +1,85 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+ul {
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.App {
+  margin: 0;
+  position: relative;
+  width: 1440px;
+  height: 900px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7F9FA 100%);
+
+  border: 2px;
+  border-color: black;
+  border-style: outset;
+}
+
+.col_1 {
+  flex: 100%;
+}
+
+.col_2 {
+  flex: 50%;
+}
+
+.col_3 {
+  flex: 33.333%;
+}
+
+.col_4 {
+  flex: 25%;
+}
+
+.col_5 {
+  flex: 20%;
+}
+
+.col_6 {
+  flex: 16.667%;
+}
+
+.col_7 {
+  flex: 14.286%;
+}
+
+.col_8 {
+  flex: 12.5%;
+}
+
+.col_9 {
+  flex: 11.111%;
+}
+
+.col_10 {
+  flex: 10%;
+}
+
+.col_11 {
+  flex: 9.091%;
+}
+
+.col_12 {
+  flex: 8.333%;
 }
