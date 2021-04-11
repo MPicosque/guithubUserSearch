@@ -6,6 +6,7 @@ type Props = {
 }
 
 const ButtonIcon = ({ text }: Props) => (
+    console.log("Button pressed"),
     <div className="d_flex">
         <button className="btn-icon">
         <p>
