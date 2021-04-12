@@ -14,10 +14,6 @@
   padding-right: 90px;
   background: #E6F7FF;
   border-radius: 16px;
-
-  border-color: #000;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .Search-content-title {
@@ -46,12 +42,8 @@
   color: #000;
 }
 
-.normal:placeholder-shown {
+.Search-input-text:placeholder-shown {
   color: #BFBFBF;
-}
-
-.vazio:placeholder-shown {
-  color: red;
 }
 
 .Result-conteiner {
@@ -71,10 +63,6 @@
   padding-right: 30px;
   background: #F5F5F5;
   border-radius: 5px;
-
-  border-color: #000;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .left-column {
@@ -91,10 +79,6 @@
   align-content: center;
   align-self: center;
   justify-content: center;
-
-  border-color: #000;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .right-column {

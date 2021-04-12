@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import Moment from 'moment';
 import axios from 'axios';
 import './styles.css';
+import ImageLoader from 'core/components/Loaders/ImageLoader';
+import InfoLoader from 'core/components/Loaders/InfoLoader';
 
 const BASE_URL = 'https://api.github.com/users'
 
@@ -20,17 +23,28 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [resultData, setResultData] = useState<Result>();
     const [placeHolderValue, setPlaceHolderValue] = useState('Usuário Github');
+    const [isLoading, setIsLoading] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setResultData(undefined);
+        setIsActive(false);
+        setPlaceHolderValue('Usuário Github');
+        setIsLoading(true);
 
         axios(`${BASE_URL}/${searchValue}`)
-        .then(response => setResultData(response.data))
+        .then(
+            response => {setResultData(response.data);
+            setIsActive(true);
+            })
         .catch(
             () => {console.error('Houve um errro ao buscar os dados!');
             setSearchValue('');
             setPlaceHolderValue('Usuário não encontrado - Usuário Github');
+            })
+        .finally(() => {
+                setIsLoading(false);
             });
     }
 
@@ -53,47 +67,50 @@ function Search() {
                     </form>
                 </div>
             </div>
-            {resultData && (
-//                setDateValue(Moment(resultData.created_at).format("DD-MM-YYYY")),
+            {(isActive || isLoading) ? (
                 <div className="Result-conteiner">
                     <div className="Result-content">
                         <>
+                        {isLoading ? <ImageLoader /> : (
                             <div className="left-column">
-                                <img src={resultData.avatar_url} alt="IMG PROFILE" className="img-profile"/>
-                                <form action={resultData.html_url} target="_blank">
+                                <img src={resultData?.avatar_url} alt="IMG PROFILE" className="img-profile"/>
+                                <form action={resultData?.html_url} target="_blank">
                                     <button className="btn-icon">Ver Perfil</button>
                                 </form>
                             </div>
+                        )}
                         </>
                         <>
+                        {isLoading ? <InfoLoader /> : (
                             <div className="right-column">
                                 <div className="result-fields">
-                                    <span className="result-fields-box">Repositórios públicos: {resultData.public_repos}</span>
-                                    <span className="result-fields-box">Seguidores: {resultData.following}</span>
-                                    <span className="result-filds-box">Seguindo: {resultData.followers}</span>
+                                    <span className="result-fields-box">Repositórios públicos: {resultData?.public_repos}</span>
+                                    <span className="result-fields-box">Seguidores: {resultData?.following}</span>
+                                    <span className="result-filds-box">Seguindo: {resultData?.followers}</span>
                                     <div className="result-info">
                                         <h6 className="result-info-title">
                                             Informações
                                         </h6>
                                         <strong className="result-info-data">
-                                            Empresa: {resultData.company}
+                                            Empresa: {resultData?.company}
                                         </strong>
                                         <strong className="result-info-data">
-                                            Website/Blog: {resultData.blog}
+                                            Website/Blog: {resultData?.blog}
                                         </strong>
                                         <strong className="result-info-data">
-                                            Localidade: {resultData.location}
+                                            Localidade: {resultData?.location}
                                         </strong>
                                         <strong className="result-info-data">
-                                            Membro desde: {resultData.created_at}
+                                            Membro desde: {Moment(resultData?.created_at).format("DD/MM/YYYY")}
                                         </strong>
                                     </div>
                                 </div>
                             </div>
+                        )}
                         </>
                     </div>
                 </div>
-            )}
+             ) : null }
         </>
     )
 }
